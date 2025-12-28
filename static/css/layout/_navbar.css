@@ -1,0 +1,26 @@
+.glass-nav {
+    background: rgba(5, 20, 5, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* --- Toggler Button (Hamburger Menü) Özelleştirmesi --- */
+.navbar-toggler {
+    border-color: var(--glass-border); /* Çerçeveyi silik cam rengi yap */
+    transition: var(--transition-speed);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(29, 226, 108, 0.25); 
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(237, 198, 120, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    
+    /* Filtreyi sıfırlıyoruz */
+    filter: none !important;
+}

@@ -1,0 +1,24 @@
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    bottom: -10px;
+    left: 0;
+    background: var(--accent-500);
+    border-radius: 2px;
+}
+
+/* Ana Sayfa Avatar Rotasyonu */
+.rotate-animation img {
+    transition: transform 0.5s ease;
+}
+.rotate-animation:hover img {
+    transform: rotate(5deg) scale(1.05);
+}

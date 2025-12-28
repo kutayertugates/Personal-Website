@@ -1,0 +1,21 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-900);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-700);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+p {
+    color: var(--text-800);
+    line-height: 1.7;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color var(--transition-speed);
+}

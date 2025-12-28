@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block MetaTag %}{% endblock %}
+
+{% block PageCSS %}{% endblock %}
+
+{% block Title %}Anasayfa | {% endblock %}
+
+{% block Content %}
+<header id="home" class="min-vh-100 d-flex align-items-center position-relative">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="glass-card p-5">
+                    <span class="text-uppercase fw-bold" style="color: var(--accent-600); letter-spacing: 2px;">Merhaba, Ben Kutay Ertuğ Ateş</span>
+                    <h1 class="display-3 my-3">Django Geliştiricisi &<br><span style="color: var(--primary-500);">UI Tasarımcısı</span></h1>
+                    <p class="lead mb-4">Kodun estetikle buluştuğu nokta. Modern web teknolojileri ile kullanıcı odaklı, performanslı dijital deneyimler tasarlıyorum.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#portfolio" class="btn btn-custom">Projelerimi Gör</a>
+                        <a href="#blog" class="btn btn-outline-light rounded-pill px-4 py-2">Blog Oku</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="glass-card p-3 d-inline-block rotate-animation">
+                     <img src="https://via.placeholder.com/400x400/17b556/051405?text=Dev+Image" alt="Avatar" class="img-fluid rounded-circle border border-2 border-white shadow-lg" style="width: 350px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="portfolio" class="py-5">
+    <div class="container py-5">
+        <h2 class="section-title h1">Son Projeler</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6 col-lg-4">
+                <article class="glass-card d-flex flex-column">
+                    <div style="height: 200px; background: var(--secondary-200); border-radius: 12px 12px 0 0;" class="d-flex align-items-center justify-content-center text-muted">Project Image</div>
+                    <div class="p-4 flex-grow-1">
+                        <h3 class="h4 mb-2">E-Ticaret Platformu</h3>
+                        <div class="mb-3">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <p class="small">Kullanıcı dostu arayüze sahip, sepet ve ödeme sistemleri entegre edilmiş tam kapsamlı e-ticaret çözümü.</p>
+                    </div>
+                    <div class="p-4 pt-0">
+                        <a href="#" class="text-decoration-none" style="color: var(--accent-500);">İncele &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="glass-card d-flex flex-column">
+                    <div style="height: 200px; background: var(--accent-200); border-radius: 12px 12px 0 0;" class="d-flex align-items-center justify-content-center text-muted">Project Image</div>
+                    <div class="p-4 flex-grow-1">
+                        <h3 class="h4 mb-2">Task Manager API</h3>
+                        <div class="mb-3">
+                            <span class="tech-tag">DRF</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <p class="small">Takım içi görev dağılımını optimize eden, RESTful mimari ile kurgulanmış arka uç servisi.</p>
+                    </div>
+                    <div class="p-4 pt-0">
+                        <a href="#" class="text-decoration-none" style="color: var(--accent-500);">İncele &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+             <div class="col-md-6 col-lg-4">
+                <article class="glass-card d-flex flex-column">
+                    <div style="height: 200px; background: var(--primary-200); border-radius: 12px 12px 0 0;" class="d-flex align-items-center justify-content-center text-muted">Project Image</div>
+                    <div class="p-4 flex-grow-1">
+                        <h3 class="h4 mb-2">Kişisel Blog</h3>
+                        <div class="mb-3">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <p class="small">Glassmorphism tasarım ilkeleriyle hazırlanmış, SEO uyumlu ve hızlı kişisel web sitesi.</p>
+                    </div>
+                    <div class="p-4 pt-0">
+                        <a href="#" class="text-decoration-none" style="color: var(--accent-500);">İncele &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="py-5">
+    <div class="container py-5">
+        <h2 class="section-title h1">Blog Yazıları</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-12">
+                <div class="glass-card p-4 d-md-flex align-items-center gap-4">
+                    <div class="flex-shrink-0 bg-dark rounded text-center p-3" style="width: 80px; height: 80px;">
+                        <span class="d-block fw-bold h4 m-0 text-white">29</span>
+                        <small class="text-white-50">ARA</small>
+                    </div>
+                    <div>
+                        <h3 class="h4">Django'da ORM Optimizasyonu</h3>
+                        <p class="mb-2 text-truncate" style="max-width: 600px;">Veritabanı sorgularını n+1 problemine takılmadan nasıl optimize edersiniz? select_related ve prefetch_related kullanımı.</p>
+                        <a href="#" style="color: var(--primary-500); font-size: 0.9rem;">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="glass-card p-4 d-md-flex align-items-center gap-4">
+                    <div class="flex-shrink-0 bg-dark rounded text-center p-3" style="width: 80px; height: 80px;">
+                        <span class="d-block fw-bold h4 m-0 text-white">15</span>
+                        <small class="text-white-50">ARA</small>
+                    </div>
+                    <div>
+                        <h3 class="h4">Modern CSS: Grid vs Flexbox</h3>
+                        <p class="mb-2 text-truncate" style="max-width: 600px;">Hangi düzen modelini ne zaman kullanmalısınız? Pratik örneklerle karşılaştırma.</p>
+                        <a href="#" style="color: var(--primary-500); font-size: 0.9rem;">Devamını Oku</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block PageJS %}{% endblock %}

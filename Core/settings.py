@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,3 +123,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Geliştirme yaparken senin koyacağın global CSS/JS dosyalarının yeri
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Projeyi yayına alırken (deploy) tüm dosyaların toplanacağı yer
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# 2. Medya Dosyaları (Kullanıcıların yüklediği avatar vb.)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
