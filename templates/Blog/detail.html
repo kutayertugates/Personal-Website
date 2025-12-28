@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}Modern Web Tasarımında Glassmorphism | {% endblock %}
+
+{% block PageCSS %}
+    <link rel="stylesheet" href="{% static 'css/pages/blog-detail.css' %}">
+{% endblock %}
+
+{% block Content %}
+<section class="py-5 mt-4">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#home">Ana Sayfa</a></li>
+                <li class="breadcrumb-item"><a href="#blog">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Modern Web Tasarımı</li>
+            </ol>
+        </nav>
+
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <article class="article-card">
+                    
+                    <header class="article-header mb-4">
+                        <div class="mb-3">
+                            <span class="tech-tag">UI/UX</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Trendler</span>
+                        </div>
+                        
+                        <h1>Modern Web Tasarımında Glassmorphism: Neden ve Nasıl?</h1>
+                        
+                        <div class="article-meta mt-3">
+                            <div class="meta-item">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span>29 Aralık 2024</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-regular fa-clock"></i>
+                                <span>7 dk okuma</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-regular fa-user"></i>
+                                <span>Kutay Ertuğ Ateş</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Abstract Glass" class="article-featured-img img-fluid">
+                        <div class="position-absolute bottom-0 end-0 p-3">
+                            <small class="text-white-50 bg-dark rounded px-2 py-1">Fotoğraf: Unsplash</small>
+                        </div>
+                    </div>
+
+                    <div class="article-content mt-4">
+                        <p class="lead">Web tasarımı, düz ve materyal tasarımdan sonra yeni bir derinlik kazandı. Glassmorphism, sadece bir görsel efekt değil, kullanıcıya katmanlı bir deneyim sunan bir UI hiyerarşi aracıdır.</p>
+
+                        <p>Kullanıcı arayüzlerinde derinlik algısı yaratmak, hiyerarşiyi belirlemenin en doğal yoludur. Tıpkı gerçek hayatta masanın üzerindeki bir kağıdın, masadan daha "yukarıda" ve "önemli" olması gibi; Glassmorphism de içerikleri arka plandan ayırarak odaklanmayı kolaylaştırır.</p>
+                        
+                        <h2>Bulanıklığın Gücü: Backdrop Filter</h2>
+                        <p>Eskiden CSS'de opaklık (opacity) ile şeffaflık verirdik ama bu arka planı sadece soluklaştırırdı. Modern CSS ile gelen <code>backdrop-filter</code> özelliği ise arkadaki nesneleri <strong>bulanıklaştırarak</strong>, öndeki metnin okunabilirliğini maksimum seviyeye çıkarır.</p>
+
+                        <blockquote>
+                            "Tasarım sadece nasıl göründüğü değil, nasıl hissettirdiği ve nasıl çalıştığıdır. Glassmorphism, dijital dünyaya dokunsal bir his katar."
+                        </blockquote>
+
+                        <h3>Kod Örneği: Nasıl Yapılır?</h3>
+                        <p>İşte bu sayfada kullandığımız o buzlu cam efektinin arkasındaki CSS büyüsü:</p>
+
+                        <pre><code>.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}</code></pre>
+
+                        <h2>Performans Etkisi</h2>
+                        <p>Bir UI takıntılısı olarak şunu söylemeliyim: Her güzel şeyin bir bedeli vardır. Bu efekt, tarayıcının render motorunu (GPU) yoğun kullanır. Bu yüzden:</p>
+                        <ul>
+                            <li>Gereksiz katmanlardan kaçının.</li>
+                            <li>Çok büyük alanlarda blur değerini abartmayın.</li>
+                            <li>Mobil cihazlarda test etmeyi asla unutmayın.</li>
+                        </ul>
+
+                        <p>Sonuç olarak, doğru kullanıldığında kullanıcıyı içine çeken, yanlış kullanıldığında ise tarayıcıyı kilitleyen bir güçtür. Gücü kontrol etmek sizin elinizde.</p>
+                    </div>
+
+                    <div class="border-top border-secondary mt-5 pt-4 d-flex justify-content-between align-items-center" style="border-color: var(--glass-border) !important;">
+                        <span class="text-muted small">Faydalı bulduysan paylaş:</span>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-light btn-sm rounded-circle" style="width: 32px; height: 32px; padding: 0;"><i class="fa-brands fa-twitter"></i></button>
+                            <button class="btn btn-outline-light btn-sm rounded-circle" style="width: 32px; height: 32px; padding: 0;"><i class="fa-brands fa-linkedin-in"></i></button>
+                        </div>
+                    </div>
+
+                </article>
+
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <a href="#" class="glass-card p-3 d-block text-decoration-none h-100 d-flex flex-column justify-content-center">
+                            <small class="text-muted d-block mb-1">&larr; Önceki Yazı</small>
+                            <span class="d-block text-truncate fw-bold" style="color: var(--text-700);">Minimalizm Öldü mü?</span>
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="#" class="glass-card p-3 d-block text-decoration-none h-100 d-flex flex-column justify-content-center">
+                            <small class="text-muted d-block mb-1">Sonraki Yazı &rarr;</small>
+                            <span class="d-block text-truncate fw-bold" style="color: var(--text-700);">CSS Grid vs Flexbox</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="col-lg-4">
+                <div class="sidebar-sticky d-flex flex-column gap-4">
+                    
+                    <div class="glass-card p-4 text-center">
+                        <img src="https://via.placeholder.com/150/17b556/051405?text=KEA" alt="Yazar" class="rounded-circle mb-3 border border-2 border-success shadow-sm" style="width: 80px; height: 80px; object-fit: cover;">
+                        <h4 class="h5 mb-1">Kutay Ertuğ Ateş</h4>
+                        <p class="small text-muted mb-3">Full Stack Developer & UI Enthusiast</p>
+                        <p class="small text-start mb-0 opacity-75">"Kodun arkasındaki matematik kadar, ön yüzündeki estetik de beni büyülüyor. Detaylara takıntılıyım."</p>
+                    </div>
+
+                    <div class="glass-card p-4">
+                        <h5 class="h6 mb-3 text-uppercase fw-bold" style="color: var(--accent-500); letter-spacing: 1px; font-size: 0.8rem;">İçindekiler</h5>
+                        <nav class="toc-nav d-flex flex-column gap-2">
+                            <a href="#" class="toc-link text-truncate">Giriş: Derinlik Algısı</a>
+                            <a href="#" class="toc-link text-truncate">Bulanıklığın Gücü</a>
+                            <a href="#" class="toc-link text-truncate">Kod Örneği: Nasıl Yapılır?</a>
+                            <a href="#" class="toc-link text-truncate">Performans Etkisi</a>
+                            <a href="#" class="toc-link text-truncate">Sonuç</a>
+                        </nav>
+                    </div>
+
+                    <div class="glass-card p-4">
+                        <h5 class="h6 mb-3 text-uppercase fw-bold" style="color: var(--accent-500); letter-spacing: 1px; font-size: 0.8rem;">İlgini Çekebilir</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="tech-tag text-decoration-none">Frontend</a>
+                            <a href="#" class="tech-tag text-decoration-none">Tasarım Sistemleri</a>
+                            <a href="#" class="tech-tag text-decoration-none">Renk Teorisi</a>
+                            <a href="#" class="tech-tag text-decoration-none">Web Performansı</a>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+{% endblock %}

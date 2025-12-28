@@ -1,0 +1,151 @@
+/* --- Blog Article Typography & Layout --- */
+
+/* Okuma Alanı Kartı - Daha yüksek opaklık ve okunabilirlik için */
+.article-card {
+    background: rgba(5, 20, 5, 0.85); /* Index'e göre daha koyu/opak */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 2.5rem; /* Geniş iç boşluk ferahlık verir */
+}
+
+/* Başlık Alanı */
+.article-header h1 {
+    color: var(--text-600);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: var(--text-800);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.meta-item i {
+    color: var(--accent-500);
+}
+
+/* Featured Image */
+.article-featured-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 2rem 0;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* --- İçerik Okunabilirliği (Typography) --- */
+.article-content {
+    color: var(--text-900); /* En açık krem rengi */
+    font-size: 1.125rem; /* 18px ideal okuma boyutu */
+    line-height: 1.8; /* Satır aralığı geniş tutulmalı */
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content h2, 
+.article-content h3 {
+    color: var(--text-700); /* Altın sarısı başlıklar */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.article-content a {
+    color: var(--primary-500);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: var(--transition-speed);
+}
+.article-content a:hover {
+    color: var(--primary-400);
+}
+
+.article-content ul, .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+    color: var(--text-800);
+}
+
+/* Code Blocks (Yazılımcı olduğun için önemli) */
+.article-content pre {
+    background: #0d1117; /* Github Dark benzeri */
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+.article-content code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    color: var(--secondary-400);
+}
+
+.article-content p code {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-600);
+}
+
+/* --- Sidebar (Sticky) --- */
+.sidebar-sticky {
+    position: sticky;
+    top: 100px; /* Navbar'ın altında kalacak şekilde */
+}
+
+.toc-link {
+    display: block;
+    color: var(--text-800);
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    transition: var(--transition-speed);
+}
+
+.toc-link:hover {
+    color: var(--primary-500);
+    border-left-color: var(--primary-500);
+    background: linear-gradient(90deg, rgba(29, 226, 108, 0.1), transparent);
+}
+
+/* Breadcrumb override */
+.breadcrumb-item a { color: var(--text-500); text-decoration: none; }
+.breadcrumb-item.active { color: var(--text-300); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--text-500); }
+
+/* Blockquote */
+.article-content blockquote {
+    border-left: 4px solid var(--accent-500);
+    background: rgba(109, 14, 241, 0.1);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text-800);
+    margin: 2rem 0;
+}
