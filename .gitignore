@@ -1,6 +1,12 @@
-.env
-venv/
-__pycache__/
+*.log
+*.pot
 *.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
 media/
-staticfiles/
+.DS_Store
+Thumbs.db
+venv/
+env/
+.env
