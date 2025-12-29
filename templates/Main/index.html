@@ -93,36 +93,118 @@
     </div>
 </section>
 
+<section id="skills-preview" class="py-5 position-relative">
+    <div class="blob blob-2" style="opacity: 0.3; width: 400px; height: 400px; right: 0; top: 20%;"></div>
+
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h2 class="section-title h1">Teknik Yetkinlikler</h2>
+                <p class="lead" style="color: var(--text-800);">
+                    Sadece kod yazmıyorum; ölçeklenebilir, güvenli ve performanslı sistemler mimari ediyorum. Kullandığım teknoloji yığınından seçkiler.
+                </p>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2">Tüm Yetenekler & CV &rarr;</a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 category-backend">
+                    <h3 class="skill-category-title">Backend & Core</h3>
+                    <div class="skill-grid">
+                        <div class="skill-badge" title="Python">
+                            <i class="fa-brands fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-badge" title="Django">
+                            <i class="fas fa-layer-group"></i> <span>Django</span>
+                        </div>
+                        <div class="skill-badge" title="C / C++">
+                            <i class="fa-solid fa-c"></i>
+                            <span>C / C++</span>
+                        </div>
+                        <div class="skill-badge" title="PostgreSQL">
+                            <i class="fa-solid fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 category-frontend">
+                    <h3 class="skill-category-title">Frontend & UI</h3>
+                    <div class="skill-grid">
+                        <div class="skill-badge" title="JavaScript">
+                            <i class="fa-brands fa-js"></i>
+                            <span>JS (ES6+)</span>
+                        </div>
+                        <div class="skill-badge" title="Bootstrap 5">
+                            <i class="fa-brands fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                        </div>
+                        <div class="skill-badge" title="CSS3">
+                            <i class="fa-brands fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-badge" title="Figma">
+                            <i class="fa-brands fa-figma"></i>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 category-tools">
+                    <h3 class="skill-category-title">DevOps & Tools</h3>
+                    <div class="skill-grid">
+                        <div class="skill-badge" title="Docker">
+                            <i class="fa-brands fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-badge" title="Git">
+                            <i class="fa-brands fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-badge" title="Linux">
+                            <i class="fa-brands fa-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-badge" title="Nginx">
+                            <i class="fa-solid fa-server"></i>
+                            <span>Nginx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <section id="blog" class="py-5">
     <div class="container py-5">
         <h2 class="section-title h1">Blog Yazıları</h2>
         <div class="row g-4 mt-2">
+            {% for post in latest_posts %}
             <div class="col-lg-12">
                 <div class="glass-card p-4 d-md-flex align-items-center gap-4">
                     <div class="flex-shrink-0 bg-dark rounded text-center p-3" style="width: 80px; height: 80px;">
-                        <span class="d-block fw-bold h4 m-0 text-white">29</span>
-                        <small class="text-white-50">ARA</small>
+                        <span class="d-block fw-bold h4 m-0 text-white">{{ post.created_at|date:"d" }}</span>
+                        <small class="text-white-50">{{ post.created_at|date:"M"|upper }}</small>
                     </div>
                     <div>
-                        <h3 class="h4">Django'da ORM Optimizasyonu</h3>
-                        <p class="mb-2 text-truncate" style="max-width: 600px;">Veritabanı sorgularını n+1 problemine takılmadan nasıl optimize edersiniz? select_related ve prefetch_related kullanımı.</p>
-                        <a href="#" style="color: var(--primary-500); font-size: 0.9rem;">Devamını Oku</a>
+                        <h3 class="h4">{{ post.title }}</h3>
+                        <p class="mb-2 text-truncate" style="max-width: 600px;">{{ post.content|striptags|truncatechars:160 }}</p>
+                        <a href="blog/{{ post.slug }}" style="color: var(--primary-500); font-size: 0.9rem;">Devamını Oku</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="glass-card p-4 d-md-flex align-items-center gap-4">
-                    <div class="flex-shrink-0 bg-dark rounded text-center p-3" style="width: 80px; height: 80px;">
-                        <span class="d-block fw-bold h4 m-0 text-white">15</span>
-                        <small class="text-white-50">ARA</small>
-                    </div>
-                    <div>
-                        <h3 class="h4">Modern CSS: Grid vs Flexbox</h3>
-                        <p class="mb-2 text-truncate" style="max-width: 600px;">Hangi düzen modelini ne zaman kullanmalısınız? Pratik örneklerle karşılaştırma.</p>
-                        <a href="#" style="color: var(--primary-500); font-size: 0.9rem;">Devamını Oku</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

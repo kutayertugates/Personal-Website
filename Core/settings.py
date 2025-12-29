@@ -57,7 +57,11 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat', 'Source']
         ],
         'width': 'auto',
-        'allowedContent': True
+        'allowedContent': True,
+        'entities': False,
+        'basicEntities': False,
+        'entities_greek': False,
+        'entities_latin': False,
     }
 }
 

@@ -22,3 +22,66 @@
 .rotate-animation:hover img {
     transform: rotate(5deg) scale(1.05);
 }
+
+/* --- Skills Section (Yetenekler Önizleme) --- */
+
+.skill-category-title {
+    color: var(--text-500); /* Altın sarısı tonu */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    border-left: 3px solid var(--primary-500);
+    padding-left: 10px;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Responsive Grid */
+    gap: 1rem;
+}
+
+.skill-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.2rem 0.5rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hafif yaylanma efekti */
+    cursor: default;
+}
+
+.skill-badge i, 
+.skill-badge svg {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-800);
+    transition: color 0.3s ease;
+}
+
+.skill-badge span {
+    font-size: 0.85rem;
+    color: var(--text-900);
+    font-weight: 500;
+}
+
+/* Hover Efektleri: Glassmorphism Glow */
+.skill-badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: var(--primary-500);
+    box-shadow: 0 5px 15px rgba(29, 226, 108, 0.2); /* Yeşil Glow */
+}
+
+.skill-badge:hover i {
+    color: var(--primary-400); /* İkon parlar */
+}
+
+/* Kategoriye göre hafif renk varyasyonları (İsteğe bağlı, UX'i güçlendirir) */
+.category-backend .skill-badge:hover { border-color: var(--primary-500); }
+.category-frontend .skill-badge:hover { border-color: var(--accent-500); box-shadow: 0 5px 15px rgba(109, 14, 241, 0.2); } /* Mor Glow */
+.category-tools .skill-badge:hover { border-color: var(--secondary-500); }
