@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block Title %}Modern Web Tasarımında Glassmorphism | {% endblock %}
+{% block Title %}{{ post.meta_title }} | {% endblock %}
 
 {% block PageCSS %}
     <link rel="stylesheet" href="{% static 'css/pages/blog-detail.css' %}">
@@ -15,7 +15,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#home">Ana Sayfa</a></li>
                 <li class="breadcrumb-item"><a href="#blog">Blog</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Modern Web Tasarımı</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
             </ol>
         </nav>
 
@@ -24,26 +24,30 @@
                 <article class="article-card">
                     
                     <header class="article-header mb-4">
-                        <div class="mb-3">
-                            <span class="tech-tag">UI/UX</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">Trendler</span>
-                        </div>
+                        {% if post.tags.exists %}
+                            <div class="mb-3">
+                                {% for tag in post.tags.all %}
+                                    <span class="tech-tag">{{ tag.name }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                         
-                        <h1>Modern Web Tasarımında Glassmorphism: Neden ve Nasıl?</h1>
+                        <h1>{{ post.title }}</h1>
                         
                         <div class="article-meta mt-3">
                             <div class="meta-item">
                                 <i class="fa-regular fa-calendar"></i>
-                                <span>29 Aralık 2024</span>
+                                <span>{{ post.created_at|date:"d F Y H:i" }}</span>
                             </div>
+                        
                             <div class="meta-item">
                                 <i class="fa-regular fa-clock"></i>
-                                <span>7 dk okuma</span>
+                                <span>{{ post.get_read_time }} dk okuma</span>
                             </div>
+                        
                             <div class="meta-item">
                                 <i class="fa-regular fa-user"></i>
-                                <span>Kutay Ertuğ Ateş</span>
+                                <span>{{ post.author.fullname }}</span>
                             </div>
                         </div>
                     </header>
@@ -124,57 +128,94 @@
                         <p class="small text-muted mb-3">Full Stack Developer & UI Enthusiast</p>
                         <p class="small text-start mb-0 opacity-75">"Kodun arkasındaki matematik kadar, ön yüzündeki estetik de beni büyülüyor. Detaylara takıntılıyım."</p>
                     </div>
-
+                    
                     <div class="glass-card p-4">
-                        <h5 class="h6 mb-3 text-uppercase fw-bold" style="color: var(--accent-500); letter-spacing: 1px; font-size: 0.8rem;">İçindekiler</h5>
-                        <nav class="toc-nav d-flex flex-column gap-2">
-                            <a href="#" class="toc-link text-truncate">Giriş: Derinlik Algısı</a>
-                            <a href="#" class="toc-link text-truncate">Bulanıklığın Gücü</a>
-                            <a href="#" class="toc-link text-truncate">Kod Örneği: Nasıl Yapılır?</a>
-                            <a href="#" class="toc-link text-truncate">Performans Etkisi</a>
-                            <a href="#" class="toc-link text-truncate">Sonuç</a>
-                        </nav>
+                        <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3" style="border-color: var(--glass-border) !important;">
+                            <h5 class="h6 mb-0 text-uppercase fw-bold" style="color: var(--accent-500); letter-spacing: 1px; font-size: 0.8rem;">
+                                Anlık Durum
+                            </h5>
+                            <div class="d-flex align-items-center bg-dark rounded-pill px-3 py-1 border border-secondary" style="border-color: var(--glass-border) !important;">
+                                <span class="status-indicator"></span>
+                                <span class="small fw-bold text-white" style="font-size: 0.75rem;">Freelance'a Açık</span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="d-flex flex-column gap-4">
+                            
+                            <div>
+                                <span class="activity-label">Şu An Geliştiriyor</span>
+                                <div class="d-flex justify-content-between text-white mb-1">
+                                    <span class="small fw-bold">Custom CPU Design</span>
+                                    <span class="small text-muted">%75</span>
+                                </div>
+                                <div class="activity-progress">
+                                    <div class="activity-progress-bar" style="width: 75%;"></div>
+                                </div>
+                                <small class="text-white-50" style="font-size: 0.7rem;">Verilog & Assembly ile ALU tasarımı.</small>
+                            </div>
+                    
+                            <div>
+                                <span class="activity-label">Öğreniyor</span>
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="fa-brands fa-rust text-white" style="font-size: 1.2rem;"></i>
+                                    <div>
+                                        <span class="d-block text-white small fw-bold">Rust Language</span>
+                                        <small class="text-white-50" style="font-size: 0.7rem;">Memory Safety & Concurrency</small>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="p-3 rounded" style="background: rgba(0,0,0,0.2);">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-center bg-dark rounded" style="width: 40px; height: 40px;">
+                                        <i class="fa-brands fa-spotify" style="color: #1DB954; font-size: 1.5rem;"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <span class="d-block text-white small fw-bold mb-1">Kodlama Modu</span>
+                                        <div class="music-bars">
+                                            <div class="music-bar"></div>
+                                            <div class="music-bar"></div>
+                                            <div class="music-bar"></div>
+                                            <div class="music-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small class="d-block mt-2 text-white-50 text-end fst-italic" style="font-size: 0.7rem;">Listening: Lo-Fi Hip Hop</small>
+                            </div>
+                    
+                        </div>
                     </div>
 
+                    {% if similar_posts %}
                     <div class="glass-card p-4">
                         <h5 class="h6 mb-4 text-uppercase fw-bold" style="color: var(--accent-500); letter-spacing: 1px; font-size: 0.8rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">
                             Bunları Da Okumalısın
                         </h5>
-                        
+
                         <div class="d-flex flex-column gap-2">
                             
-                            <a href="#" class="sidebar-post-item">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=200&auto=format&fit=crop" alt="Kodlama" class="sidebar-post-img">
-                                <div class="sidebar-post-content">
-                                    <h6 class="fw-bold">Temiz Kod Yazma Sanatı: SOLID Prensipleri</h6>
-                                    <small>
-                                        <i class="fa-regular fa-clock" style="font-size: 0.7rem;"></i> 5 dk okuma
-                                    </small>
-                                </div>
-                            </a>
-                    
-                            <a href="#" class="sidebar-post-item">
-                                <img src="https://images.unsplash.com/photo-1607799275518-d58665d096c2?q=80&w=200&auto=format&fit=crop" alt="Terminal" class="sidebar-post-img">
-                                <div class="sidebar-post-content">
-                                    <h6 class="fw-bold">Linux Terminalinde Ustalaşmak</h6>
-                                    <small>
-                                        <i class="fa-regular fa-clock" style="font-size: 0.7rem;"></i> 12 dk okuma
-                                    </small>
-                                </div>
-                            </a>
-                    
-                            <a href="#" class="sidebar-post-item">
-                                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=200&auto=format&fit=crop" alt="React" class="sidebar-post-img">
-                                <div class="sidebar-post-content">
-                                    <h6 class="fw-bold">React vs Vue: 2024 Karşılaştırması</h6>
-                                    <small>
-                                        <i class="fa-regular fa-clock" style="font-size: 0.7rem;"></i> 8 dk okuma
-                                    </small>
-                                </div>
-                            </a>
-                    
+                            {% for sim_post in similar_posts %}
+                                <a href="{% url 'Blog:detail' sim_post.slug %}" class="sidebar-post-item">
+                                    
+                                    {% if sim_post.cover_image %}
+                                        <img src="{{ sim_post.cover_image.url }}" alt="{{ sim_post.title }}" class="sidebar-post-img">
+                                    {% else %}
+                                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=200&auto=format&fit=crop" alt="Varsayılan" class="sidebar-post-img">
+                                    {% endif %}
+
+                                    <div class="sidebar-post-content">
+                                        <h6 class="fw-bold">{{ sim_post.title }}</h6>
+                                        <small>
+                                            <i class="fa-regular fa-clock" style="font-size: 0.7rem;"></i> {{ sim_post.get_read_time }} dk okuma
+                                        </small>
+                                    </div>
+                                </a>
+                            {% endfor %}
+
                         </div>
                     </div>
+                    {% endif %}
 
                 </div>
             </aside>

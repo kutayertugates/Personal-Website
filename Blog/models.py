@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import MinLengthValidator
 from django.utils.text import slugify
+import math
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, verbose_name="Etiket Adı")
@@ -21,6 +22,13 @@ class Tag(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+    def get_read_time(self):
+        # HTML taglerini temizlemeden kaba taslak kelime sayar
+        # Ortalama bir insan dakikada 200 kelime okur.
+        word_count = len(self.content.split())
+        read_time = math.ceil(word_count / 200) # Yukarı yuvarla
+        return read_time
 
 class Blog(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts', verbose_name='Yazar')

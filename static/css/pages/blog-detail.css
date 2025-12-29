@@ -197,3 +197,88 @@
     align-items: center;
     gap: 0.3rem;
 }
+
+
+
+/* --- Activity Hub Widget --- */
+
+/* Durum Göstergesi (Pulse Animasyonu) */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-500); /* Canlı Yeşil */
+    border-radius: 50%;
+    position: relative;
+    margin-right: 8px;
+}
+
+.status-indicator::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--primary-500);
+    opacity: 0.7;
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Özel Progress Bar (İnce ve Şık) */
+.activity-progress {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.activity-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-500), var(--secondary-400));
+    border-radius: 10px;
+    width: 0%; /* HTML'den style ile yönetilecek */
+    transition: width 1s ease-in-out;
+}
+
+/* Müzik Ekolayzer Efekti (CSS Only) */
+.music-bars {
+    display: flex;
+    align-items: flex-end;
+    height: 16px;
+    gap: 2px;
+}
+
+.music-bar {
+    width: 3px;
+    background-color: var(--accent-500);
+    animation: equalizer 1s infinite ease-in-out;
+}
+
+.music-bar:nth-child(1) { height: 60%; animation-delay: 0s; }
+.music-bar:nth-child(2) { height: 30%; animation-delay: 0.2s; }
+.music-bar:nth-child(3) { height: 100%; animation-delay: 0.4s; }
+.music-bar:nth-child(4) { height: 50%; animation-delay: 0.1s; }
+
+@keyframes equalizer {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.5); }
+}
+
+.activity-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-500);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}

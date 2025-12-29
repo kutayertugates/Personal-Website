@@ -27,7 +27,7 @@ class BlogAdmin(admin.ModelAdmin):
         }
 
     # Liste Görünümü (Sütunlar)
-    list_display = ('get_thumbnail_button', 'title', 'author', 'created_at', 'updated_at')
+    list_display = ('title', 'author', 'get_thumbnail_button', 'created_at', 'updated_at')
     
     # Tıklanabilir linkler
     list_display_links = ('get_thumbnail_button', 'title')
@@ -69,16 +69,12 @@ class BlogAdmin(admin.ModelAdmin):
 
     # Listede Görsel Önizleme Metodu
     def get_thumbnail_button(self, obj):
-        if obj.cover_image:
+        if obj.thumbnail:
             # HTML: Ufak resim + Yanına Django stili buton
             html = f"""
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="{obj.cover_image.url}" 
-                         style="height: 50px; width: 80px; object-fit: cover; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);" 
-                         alt="Kapak" />
-                    
-                    <a href="{obj.cover_image.url}" target="_blank" class="button" style="font-size: 11px; font-weight: bold;">
-                        Aç ↗
+                    <a href="{obj.thumbnail.url}" target="_blank" class="button" style="font-size: 11px; font-weight: bold; text-decotation: none;">
+                        Göster
                     </a>
                 </div>
             """
