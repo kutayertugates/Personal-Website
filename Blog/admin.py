@@ -52,7 +52,7 @@ class BlogAdmin(admin.ModelAdmin):
     # Formu bölümlere ayırarak bilişsel yükü azaltıyoruz.
     fieldsets = (
         ('Genel Bilgiler', {
-            'fields': ('title', 'slug', 'author', 'thumbnail', 'content')
+            'fields': ('title', 'slug', 'author', 'thumbnail', 'thumbnail_alt', 'thumbnail_owner', 'content')
         }),
         ('SEO Ayarları', {
             'fields': ('meta_title', 'meta_description', 'tags'),

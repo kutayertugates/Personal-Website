@@ -23,16 +23,11 @@ class Tag(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-    def get_read_time(self):
-        # HTML taglerini temizlemeden kaba taslak kelime sayar
-        # Ortalama bir insan dakikada 200 kelime okur.
-        word_count = len(self.content.split())
-        read_time = math.ceil(word_count / 200) # Yukarı yuvarla
-        return read_time
-
 class Blog(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts', verbose_name='Yazar')
-    thumbnail = models.ImageField(upload_to='blog_thumbnail/', blank=True, null=True, verbose_name="Kapak Görseli")
+    thumbnail = models.ImageField(upload_to='blog_thumbnail/', verbose_name="Kapak Görseli")
+    thumbnail_alt = models.CharField(max_length=125, default="Thumbnail Görseli", verbose_name='Kapak Görseli Açıklaması')
+    thumbnail_owner = models.CharField(max_length=64, blank=True, null=True, verbose_name='Thumbnail Sahibi')
     meta_title = models.CharField(max_length=60, verbose_name='Meta Başlık')
     title = models.CharField(max_length=70, verbose_name='Başlık')
     meta_description = models.CharField(max_length=160, verbose_name='Meta Açıklama')
@@ -68,3 +63,8 @@ class Blog(models.Model):
         if not self.slug:
             self.slug = slugify(self.title.replace('ı', 'i')) # Türkçe karakter fix
         super().save(*args, **kwargs)
+    
+    def get_read_time(self):
+        word_count = len(self.content.split())
+        read_time = math.ceil(word_count / 200) # Yukarı yuvarla
+        return read_time
