@@ -149,3 +149,51 @@
     color: var(--text-800);
     margin: 2rem 0;
 }
+
+
+/* --- Sidebar "İlgini Çekebilir" Posts --- */
+
+.sidebar-post-item {
+    display: flex; /* Görsel ve metni yan yana al */
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.2s ease; /* Hızlı ve akıcı tepki */
+    text-decoration: none;
+    border: 1px solid transparent; /* Hover'da zıplama yapmasın diye rezerve alan */
+}
+
+.sidebar-post-item:hover {
+    background: rgba(255, 255, 255, 0.03); /* Çok hafif bir aydınlanma */
+    border-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px); /* UX İpucu: "Bu tıklanabilir" hissi veren minik kayma */
+}
+
+.sidebar-post-img {
+    width: 70px; /* Sabit boyut - CLS (Layout Shift) önlemek için şart */
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover; /* Görseli bozmadan sığdır */
+    border: 1px solid var(--glass-border);
+}
+
+.sidebar-post-content h6 {
+    font-size: 0.95rem;
+    color: var(--text-800);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+.sidebar-post-item:hover .sidebar-post-content h6 {
+    color: var(--primary-500); /* Hover'da başlık yeşillenir */
+}
+
+.sidebar-post-content small {
+    font-size: 0.75rem;
+    color: var(--text-500);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}

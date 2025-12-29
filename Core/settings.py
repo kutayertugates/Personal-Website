@@ -40,10 +40,24 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Main',
     'Account',
-    'Blog'
+    'Blog',
+    'ckeditor',
 ]
 
 AUTH_USER_MODEL = 'Account.CustomUser'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ],
+        'width': 'auto',
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

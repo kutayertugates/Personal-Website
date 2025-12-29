@@ -1,0 +1,16 @@
+/* CKEditor Source (Kaynak) Modu Düzeltmesi */
+textarea.cke_source {
+    background-color: #282c34 !important; /* Modern, koyu gri arka plan */
+    color: #abb2bf !important;            /* Okunabilir açık gri yazı */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important; /* Kod fontu */
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    padding: 15px !important;
+    border: 1px solid #444 !important;
+}
+
+/* Opsiyonel: Admin panelindeki o iğrenç sarı/mavi focus efektini kaldırır */
+textarea.cke_source:focus {
+    outline: none !important;
+    border-color: #61afef !important; /* Odaklanınca mavi çizgi */
+}
