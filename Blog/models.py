@@ -27,7 +27,7 @@ class Blog(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts', verbose_name='Yazar')
     thumbnail = models.ImageField(upload_to='blog_thumbnail/', verbose_name="Kapak Görseli")
     thumbnail_alt = models.CharField(max_length=125, default="Thumbnail Görseli", verbose_name='Kapak Görseli Açıklaması')
-    thumbnail_owner = models.CharField(max_length=64, blank=True, null=True, verbose_name='Thumbnail Sahibi')
+    thumbnail_owner = models.CharField(max_length=64, blank=True, null=True, verbose_name='Kapak Görseli Sahibi')
     meta_title = models.CharField(max_length=60, verbose_name='Meta Başlık')
     title = models.CharField(max_length=70, verbose_name='Başlık')
     meta_description = models.CharField(max_length=160, verbose_name='Meta Açıklama')

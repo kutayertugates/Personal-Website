@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup.apps.CleanupConfig',
+    'ckeditor',
     'Main',
     'Account',
-    'Blog',
-    'ckeditor',
+    'Blog'
 ]
 
 AUTH_USER_MODEL = 'Account.CustomUser'
@@ -94,6 +94,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Core.wsgi.application'
 
+
+SILENCED_SYSTEM_CHECKS = ["ckeditor.W001"]
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
