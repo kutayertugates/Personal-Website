@@ -13,8 +13,8 @@
         
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#home">Ana Sayfa</a></li>
-                <li class="breadcrumb-item"><a href="#blog">Blog</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'Main:Homepage' %}">Ana Sayfa</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'Blog:List' %}">Blog</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
             </ol>
         </nav>
@@ -193,3 +193,5 @@
     </div>
 </section>
 {% endblock %}
+
+{% block PageJS %}{% endblock %}

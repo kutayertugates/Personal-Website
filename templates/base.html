@@ -44,7 +44,7 @@
                 <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item"><a class="nav-link text-white" href="{% url 'Main:Homepage' %}">Ana Sayfa</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#portfolio">Portfolyo</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'Blog:List' %}">Blog</a></li>
                     <li class="nav-item"><a class="btn btn-custom btn-sm d-flex align-items-center" href="#contact">İletişim</a></li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
         {% if footer_obj %}
             {{ footer_obj.html_content|safe }}
         {% else %}
-            2025 &copy; Kutay Ertuğ Ateş. Tüm Hakları Saklıdır2 
+            <p class="text-center">2025 &copy; Kutay Ertuğ Ateş. Tüm Hakları Saklıdır</p>
         {% endif %}
     </footer>
 
